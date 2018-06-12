@@ -1,0 +1,21 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="SpringStudy-Web:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/SpringStudy_Web_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="SpringStudy-Web/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="SpringStudy-Web" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="spring4.3" />
+          <element id="library" level="project" name="commons-logging-1.2" />
+          <element id="library" level="project" name="aspectj-1.8" />
+          <element id="library" level="project" name="mybatis-3.4" />
+          <element id="library" level="project" name="mybatis-3.4.5" />
+          <element id="library" level="project" name="mysql-connector-java-5.1.41" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
