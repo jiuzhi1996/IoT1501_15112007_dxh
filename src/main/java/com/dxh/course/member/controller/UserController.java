@@ -1,12 +1,19 @@
 package com.dxh.course.member.controller;
 
 import com.dxh.course.member.model.User;
+import com.dxh.course.member.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @Controller
 public class UserController {
+
+    @Autowired
+    UserService userService;
 
     @RequestMapping("/selectUser")
     public String selectUser(int id,Model model) {
@@ -25,24 +32,19 @@ public class UserController {
 
     @RequestMapping("/registerUser")
     public String registerUser(User user, Model model) {
-        Integer id= user.getId();
-        String name=user.getName();
-        String sex=user.getSex();
-        String email=user.getEmail();
-        StringBuilder msg=new StringBuilder();
-        msg.append("用户信息：<br />");
-        msg.append("id="+id+"<br />");
-        msg.append("name="+name+"<br />");
-        msg.append("sex="+sex+"<br />");
-        msg.append("email="+email+"<br />");
-        model.addAttribute("msg",msg.toString());
-        return "success";
+        //保存到数据库操作
+        userService.addUser(user);
+
+        return "redirect:toUserList";
     }
 
     //跳转到用户列表jsp
     @RequestMapping("/toUserList")
-    public String toUserList(){
-
+    public String toUserList(Model model){
+        //到数据库查询
+        List<User> userList = userService.findAllUsers();
+        //把数据放到model传到jsp页面
+        model.addAttribute("user_list",userList);
         return "userlist";
 
     }
@@ -63,6 +65,33 @@ public class UserController {
 
     }
 
+    //删除用户
+    @RequestMapping("/deleteUser")
+    public String deleteUser(int id,Model model){
+        //保存到数据库操作
+        userService.deleteUser(id);
+        return "redirect:toUserList";
+    }
+
+    //修改用户
+    @RequestMapping("/toEdituser")
+    public String toEditUder(int id,Model model){
+        //根据id从数据库查找用户
+        User user = new User();
+        userService.findUserById(id);
+
+        model.addAttribute("user",user);
+
+        return "useredit";
+    }
+    //修改用户信息
+    @RequestMapping("/editUser")
+    public String editUser(User user){
+        //保存到数据库操作
+        userService.editUser(user);
+
+        return "redirect:toUserList";
+    }
 
 
 }

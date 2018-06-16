@@ -43,7 +43,8 @@
                             性别:
                         </td>
                         <td>
-                            <input name="sex" type="text" size="10">
+                            <input name="sex" type="radio" value="0">男&nbsp;&nbsp;
+                            <input name="sex" type="radio" value="1">女
                         </td>
                     </tr>
                     <tr>
@@ -62,8 +63,8 @@
         <tr>
             <td>
                 <input type="button" style="width: 80px" value="提交" onclick="btnAdd('${pageContext.request.contextPath}/registerUser')">
-                <input type="reset" style="width: 80px" value="重置">
-                <input type="button" style="width: 80px" value="取消">
+                <input type="reset" style="width: 80px" value="重置" onclick="btnReset()">
+                <input type="button" style="width: 80px" value="取消" onclick="btnCancel('${pageContext.request.contextPath}/toUserList')">
             </td>
         </tr>
     </table>
@@ -73,6 +74,12 @@
         document.frm.action=url;
         document.frm.submit();
 
+    }
+    function btnReset(url) {
+        document.frm.reset();
+    }
+    function btnCancel(url) {
+        window.location.replace(url);
     }
 </script>
 </body>

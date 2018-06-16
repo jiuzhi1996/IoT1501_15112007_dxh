@@ -6,11 +6,15 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <html>
 <head>
     <title>用户列表</title>
 </head>
 <body>
+
     <table width="800" border="1" align="center" cellpadding="0" cellspacing="0">
 
         <tr>
@@ -22,8 +26,8 @@
         <tr>
             <td height="30">
                 <input type="button" style="width: 80px" value="注册" onclick="btnAdd('${pageContext.request.contextPath}/toRegister')">
-                <input type="button" style="width: 80px" value="修改" onclick="btnEdit('')">
-                <input type="button" style="width: 80px" value="删除" onclick="btnDelete('${pageContext.request.contextPath}/deleteUsers')">
+                <input type="button" style="width: 80px" value="修改" onclick="btnEdit('${pageContext.request.contextPath}/toEdituser')">
+                <input type="button" style="width: 80px" value="删除" onclick="btnDelete('${pageContext.request.contextPath}/deleteUser')">
             </td>
         </tr>
         <tr>
@@ -36,30 +40,26 @@
                             <td width="10%">性别</td>
                             <td>邮箱</td>
                         </tr>
+
+                        <c:forEach var="user" items="${user_list}">
                         <tr>
                             <td height="20">
-                                <input type="checkbox" name="ids" value="1">
+                                <input type="radio" name="id" value="${user.id}">
                             </td>
-                            <td>李四</td>
-                            <td>男</td>
-                            <td>lisi@hbxy.com</td>
-                        </tr>
-                        <tr>
-                            <td height="20">
-                                <input type="checkbox" name="ids" value="2">
+                            <td>${user.name}</td>
+                            <c:set var="sex" value="${user.sex}"></c:set>
+                            <td>
+                                <c:if test="${sex == 0}">
+                                    <c:out value="男"/>
+                                </c:if>
+                                <c:if test="${sex == 1}">
+                                    <c:out value="女"/>
+                                </c:if>
                             </td>
-                            <td>王五</td>
-                            <td>男</td>
-                            <td>wangwu@hbxy.com</td>
+                            <td>${user.email}</td>
                         </tr>
-                        <tr>
-                            <td height="20">
-                                <input type="checkbox" name="ids" value="3">
-                            </td>
-                            <td>张三</td>
-                            <td>男</td>
-                            <td>zhangsan@hbxy.com</td>
-                        </tr>
+                        </c:forEach>
+
                     </table>
                 </form>
 
