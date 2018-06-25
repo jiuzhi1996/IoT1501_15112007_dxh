@@ -10,13 +10,15 @@
 <html>
 <head>
     <title>修改用户信息</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
 </head>
 <body>
-    <table width="800" border="1" align="center" cellpadding="0" cellspacing="0">
+    <table width="1000px" align="center" cellpadding="0" cellspacing="0" >
         <tr>
 
             <td>
-                <font size="10">XXXX平台</font>
+                <font size="6">学生管理平台</font>
             </td>
 
         </tr>
@@ -24,18 +26,20 @@
 
             <td>
                 <form name="frm" method="post">
-                    <table width="100%" border="1" cellspacing="0" cellpadding="0">
+                    <table width="700px" cellspacing="0" cellpadding="0" class="table table-hover">
                         <tr>
-                            <td height="30" colspan="2">
+                            <td height="15" colspan="2">
                                 用户信息修改
                             </td>
                         </tr>
                         <tr>
-                            <td width="20%" align="right">
+                            <td width="10%" align="right">
                                 用户ID
                             </td>
                             <td>
-                                <input name="id" value="${user.id}" type="text" size="10" readonly>
+                                <div class="col-xs-3">
+                                    <input name="id" value="${user.id}" type="text" size="10"  class="form-control" readonly>
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -43,7 +47,9 @@
                                 姓名:
                             </td>
                             <td>
-                                <input name="name" value="${user.name}" type="text" size="10">
+                                <div class="col-xs-3">
+                                    <input name="name" value="${user.name}" type="text" size="10" class="form-control">
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -69,7 +75,9 @@
                                 邮箱:
                             </td>
                             <td>
-                                <input name="email" value="${user.email}" type="text" size="10">
+                                <div class="col-xs-3">
+                                    <input name="email" value="${user.email}" type="text" size="10" class="form-control">
+                                </div>
                             </td>
                         </tr>
                     </table>
@@ -79,13 +87,15 @@
         </tr>
         <tr>
             <td>
-                <input type="button" style="width: 80px" value="提交" onclick="btnEdit('${pageContext.request.contextPath}/editUser')">
-                <input type="reset" style="width: 80px" value="重置" onclick="btnReset('${pageContext.request.contextPath}/toEdituser?id=${user.id}')">
-                <input type="button" style="width: 80px" value="取消" onclick="btnCancel('${pageContext.request.contextPath}/toUserList')">
+                <input type="button" class="btn btn-default" style="width: 80px" value="提交" onclick="btnEdit('${pageContext.request.contextPath}/editUser')">
+                <input type="reset" class="btn btn-default" style="width: 80px" value="重置" onclick="btnReset('${pageContext.request.contextPath}/toEditUser?id=${user.id}')">
+                <input type="button" class="btn btn-default" style="width: 80px" value="取消" onclick="btnCancel('${pageContext.request.contextPath}/toUserList')">
             </td>
         </tr>
     </table>
-<script language="JavaScript">
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script language="JavaScript">
     function btnEdit(url) {
         document.frm.action = url;
         document.frm.submit();

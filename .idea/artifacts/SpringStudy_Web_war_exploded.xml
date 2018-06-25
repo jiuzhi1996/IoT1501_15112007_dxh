@@ -2,10 +2,10 @@
   <artifact type="exploded-war" name="SpringStudy-Web:war exploded">
     <output-path>$PROJECT_DIR$/out/artifacts/SpringStudy_Web_war_exploded</output-path>
     <root id="root">
-      <element id="javaee-facet-resources" facet="SpringStudy-Web/web/Web" />
+      <element id="javaee-facet-resources" facet="IoT1501_15112007_dxh/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="SpringStudy-Web" />
+          <element id="module-output" name="IoT1501_15112007_dxh" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="spring4.3" />
@@ -16,6 +16,7 @@
           <element id="library" level="project" name="mysql-connector-java-5.1.41" />
           <element id="library" level="project" name="jstl" />
           <element id="library" level="project" name="mybatis-spring-1.3.1" />
+          <element id="library" level="project" name="j2ee" />
         </element>
       </element>
     </root>

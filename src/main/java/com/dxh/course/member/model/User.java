@@ -31,15 +31,5 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
-    @Override
-    public String toString(){
-        StringBuffer stringBuffer=new StringBuffer();
-        stringBuffer.append("id=");
-        stringBuffer.append(id);
-        stringBuffer.append("\n");
-        stringBuffer.append("name=");
-        stringBuffer.append(name);
-        return stringBuffer.toString();
-    }
 
 }

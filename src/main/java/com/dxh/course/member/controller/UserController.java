@@ -74,16 +74,17 @@ public class UserController {
     }
 
     //修改用户
-    @RequestMapping("/toEdituser")
-    public String toEditUder(int id,Model model){
+    @RequestMapping("/toEditUser")
+    public String toEditUser(int id,Model model){
         //根据id从数据库查找用户
         User user = new User();
-        userService.findUserById(id);
+        user = userService.findUserById(id);
 
         model.addAttribute("user",user);
 
         return "useredit";
     }
+
     //修改用户信息
     @RequestMapping("/editUser")
     public String editUser(User user){

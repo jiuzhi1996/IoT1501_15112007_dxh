@@ -12,28 +12,23 @@
 <html>
 <head>
     <title>用户列表</title>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
 </head>
 <body>
 
-    <table width="800" border="1" align="center" cellpadding="0" cellspacing="0">
+    <table width="1000px" align="center" cellpadding="0" cellspacing="0" >
 
         <tr>
             <td>
-                <font size="10">XXXX平台</font>
-            </td>
-        </tr>
-
-        <tr>
-            <td height="30">
-                <input type="button" style="width: 80px" value="注册" onclick="btnAdd('${pageContext.request.contextPath}/toRegister')">
-                <input type="button" style="width: 80px" value="修改" onclick="btnEdit('${pageContext.request.contextPath}/toEdituser')">
-                <input type="button" style="width: 80px" value="删除" onclick="btnDelete('${pageContext.request.contextPath}/deleteUser')">
+                <font size="6">学生管理平台</font>
             </td>
         </tr>
         <tr>
             <td>
                 <form name="frm" method="post">
-                    <table width="100%" border="1" cellspacing="0" cellpadding="0">
+                    <table width="700px" cellspacing="0" cellpadding="0" class="table table-hover ">
                         <tr>
                             <td height="30" width="5%">选择</td>
                             <td width="15%">姓名</td>
@@ -62,12 +57,19 @@
 
                     </table>
                 </form>
+            </td>
+        </tr>
 
+        <tr>
+            <td height="30">
+                <input class="btn btn-default" type="button" style="width: 80px" value="注册" onclick="btnAdd('${pageContext.request.contextPath}/toRegister')">
+                <input class="btn btn-default" type="button" style="width: 80px" value="修改" onclick="btnEdit('${pageContext.request.contextPath}/toEditUser')">
+                <input class="btn btn-default" type="button" style="width: 80px" value="删除" onclick="btnDelete('${pageContext.request.contextPath}/deleteUser')">
             </td>
         </tr>
 
     </table>
-
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script language="JavaScript">
 
         function btnAdd(url) {
